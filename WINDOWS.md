@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Setup instructions
 
 The following instructions will help you to get ready for [Le Wagon](http://www.lewagon.org) fullstack bootcamp:
@@ -6,7 +7,7 @@ The following instructions will help you to get ready for [Le Wagon](http://www.
 - Install a package manager
 - Pimp your Terminal
 - Setup git and GitHub
-- Install Ruby
+- Install VsCode, Python, Node, Yarn & .NET & ASP Dependencies
 
 
 ## Prerequisites
@@ -184,35 +185,6 @@ For many computers, this is already the case. Let's check:
 </details>
 
 ---
-
-
-
-## GitHub account
-
-Have you signed up to GitHub? If not, [do it right away](https://github.com/join).
-
-:point_right: **[Upload a picture](https://github.com/settings/profile)** and put your name correctly on your GitHub account. This is important as we'll use an internal dashboard with your avatars. Please do this **now**, before you continue with this guide.
-
-![](images/github_upload_picture.png)
-
-
-## Remote tools
-
-To be able to interact when we are not in the same physical room, we will be using two tools:
-
-### Zoom
-
-⚠️ If you already have Zoom installed, please make sure that the version is at least **5.4**. Otherwise, you will not be able to use breakout rooms in order to work with your buddy.
-
-Zoom is a video conferencing tool. To create an account and install the app, go to [https://zoom.us/download](https://zoom.us/download) and under **Zoom Client for Meetings** click the **Download** button. Open the file you have just downloaded. A progress bar will appear, then Zoom will start. Click on **Connection** and create an account with the **Sign Up Free** option:
-
-![zoom-sign-up-free.png](images/zoom-sign-up-free.png)
-
-Once connected, you should see:
-
-![zoom-welcome-screen.png](images/zoom-welcome-screen.png)
-
-You can close Zoom now.
 
 
 
@@ -516,10 +488,11 @@ For each of these extensions:
 
 **Extensions**
 - [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
-- [Rails Snippets](https://marketplace.visualstudio.com/items?itemName=hridoy.rails-snippets)
+- [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [ERB Helper Tags](https://marketplace.visualstudio.com/items?itemName=rayhanw.erb-helpers)
-- [ruby-rubocop](https://marketplace.visualstudio.com/items?itemName=misogi.ruby-rubocop)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+- And others...
 
 ### VS Code Settings
 - Press `Ctrl` + `,` on your keyboard to open the settings
@@ -742,9 +715,9 @@ At then end, your terminal should look like this:
 ---
 
 
-## GitHub
+## Git -> Azure
 
-We need to generate SSH keys which are going to be used by GitHub and Heroku
+We need to generate SSH keys which are going to be used by GitHub and Azure
 to authenticate you. Think of it as a way to log in, but different from the
 well known username/password couple. If you already generated keys
 that you already use with other services, you can skip this step.
@@ -1044,108 +1017,6 @@ Then please make sure that the following command returns "Browser defined 👌":
 If it does not, choose a browser in the list above and execute the corresponding command.
 
 
-## Installing Ruby (with [rbenv](https://github.com/sstephenson/rbenv))
-
-First, we need to clean up any previous Ruby installation you might have:
-
-```bash
-rvm implode && sudo rm -rf ~/.rvm
-# If you got "zsh: command not found: rvm", carry on. It means `rvm` is not
-# on your computer, that's what we want!
-
-rm -rf ~/.rbenv
-```
-
-Then in the terminal, run:
-
-```bash
-sudo apt install -y build-essential tklib zlib1g-dev libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev libreadline-dev
-```
-```bash
-sudo apt clean
-```
-```bash
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-```
-```bash
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-```
-
-**Close your terminal and open it again** (Alt+F4 and restart it). If you get a warning, just **ignore** it from now (Ruby is not installed yet).
-
-
-Now, you are ready to install the latest ruby version and set it as the default version.
-
-Run this command, it will **take a while (5-10 minutes)**
-
-```bash
-rbenv install 2.6.6
-```
-
-Once the ruby installation is done, run this command to tell the system
-to use the 2.6.6 version by default.
-
-```bash
-rbenv global 2.6.6
-```
-
-Then **restart** your Terminal again (close it and reopen it).
-
-```bash
-ruby -v
-```
-
-You should see something starting with `ruby 2.6.6p`. If not, ask a teacher.
-
-## Installing some gems
-
----
-
-<details>
-  <summary>Click here if you are in :cn: <bold>China</bold></summary>
-
-
-  &nbsp;
-
-  :warning: If you are in China, you should update the way we'll install gem with the following commands.
-
-```bash
-# China only!
-gem sources --remove https://rubygems.org/
-gem sources -a https://gems.ruby-china.com/
-gem sources -l
-# *** CURRENT SOURCES ***
-# https://gems.ruby-china.com/
-# Ruby-china.com must be in the list now
-```
-</details>
-
----
-
-All, please run the following line:
-
-```bash
-gem install rake bundler rspec rubocop rubocop-performance pry pry-byebug colored http
-```
-
-If you encounter the following error:
-
-`
-ERROR: While executing gem ... (TypeError)
-incompatible marshal file format (can't be read)
-format version 4.8 required; 60.33 given
-`
-
-Run the following command:
-```bash
-rm -rf ~/.gemrc
-```
-
-Rerun the command to install the gems.
-
-**Never** install a gem with `sudo gem install`! Even if you stumble upon a Stackoverflow answer
-(or the Terminal) telling you to do so.
-
 
 ## Node (with [nvm](https://github.com/nvm-sh/nvm))
 
@@ -1283,36 +1154,16 @@ In order to convert a Windows path to and from an Ubuntu path:
 
 ![](images/wsl_path.png)
 
+### Install useful terminal tools
 
-## Alumni
-:warning: If you have received an email from Le Wagon inviting you to sign up on Kitt (our learning platform), you can safely skip this step. Instead, please follow the instructions in the email you received if you haven't done so already.
-If you are unsure about what to do, you can follow [this link](https://kitt.lewagon.com/). If you are already logged in, you can safely skip this section. If you are not logged in, click on `Enter Kitt as a Student`. If you manage to login, you can safely skip this step. Otherwise ask a teacher whether you should have received an email or follow the instructions below.
+`tree` is a nice tool to visualize a directory tree inside the terminal:
 
-Register as a Wagon alumni by going to [kitt.lewagon.com/onboarding](http://kitt.lewagon.com/onboarding). Select your batch, sign in with GitHub and enter all your information.
+`ncdu` is a text-based interface disk utility.
 
-Your teacher will then validate that you are indeed part of the batch. You can ask him to do it as soon as you completed the registration form.
+`htop` is an interactive process viewer.
 
-Once the teacher has approved your profile, go to your email inbox. You should have 2 emails:
+`tig` is a text-mode interface for `git`.
 
-- One from Slack, inviting you to the Le Wagon Alumni slack community (where you'll chat with your buddies and all the previous alumni). Click on **Join** and fill the information.
-- One from GitHub, inviting you to `lewagon` team. **Accept it** otherwise you won't be able to access the lecture slides.
-
-
-## Slack
-
-Download and install the Slack app from [slack.com](https://slack.com/downloads/windows).
-
-Launch the app and sign in to `lewagon-alumni` organization.
-
-Make sure you upload a picture there.
-
-You can also sign in to Slack on your iPhone or Android device!
-
-The idea is that you'll have Slack open all day, so that you can share useful links / ask for help / decide where to go to lunch / etc.
-
-In case of remote tickets, you will use Slack audio or video call to get help. To ensure that everything is working fine, launch the Slack app on your Laptop, then [follow this procedure](https://slack.com/intl/en-gb/help/articles/115003538426-Troubleshoot-Slack-Calls#run-our-calls-test) (tl;dr type `/call --test` then the `Enter` key in any channel).
-
-After the test are finished, you should have green "All clear" messages at least for your microphone and camera. If not, ask a teacher.
-![](images/slack_mic_cam_all_green.png)
-
-
+```bash
+sudo apt install tree ncdu htop tig
+```
