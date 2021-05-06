@@ -43,11 +43,6 @@ sudo apt install -y apt-transport-https unzip gnome-terminal
 
 :point_up: This command will ask for your password with: `[sudo] password for <username>:`. The Linux terminal won't give you any feedback, like `\*`, as you might be used to. You just have to type it correctly, and then press `Enter`. If you type it wrong, you will be asked again otherwise the terminal will remember it until it is closed.
 
-### Menlo for Powerline font
-
-Menlo for Powerline is a fancy font for your terminal. Download it from [abertsch/Menlo-for-Powerline repository](https://github.com/abertsch/Menlo-for-Powerline/raw/master/Menlo%20for%20Powerline.ttf) on GitHub. Once download has completed, double-click on the `Menlo for Powerline.ttf` file and install it on windows.
-
-Then open a terminal and right-click on the Ubuntu logo then choose `>Settings>Fonts>Menlo for Powerline` and save.
 
 ### Xming X Server for Windows
 
@@ -55,13 +50,6 @@ You need a X server to run your text editor through your Linux console in the co
 Go to https://sourceforge.net/projects/xming/ and download Xming. Once download has completed, just launch it. You will see a Xming icon in the taskbar.
 
 Xming does not autostart by default. To autostart it when you log into Windows, press `Windows key` + `R`, type `shell:startup`, and press `Enter`. Now drag an Xming icon (e.g. from your Desktop) into the window that just opened.
-
-
-## GitHub account
-
-Have you signed up to GitHub? If not, [do it right away](https://github.com/join).
-
-:point_right: **[Upload a picture](https://github.com/settings/profile)** and put your name correctly on your GitHub account. This is important as we'll use an internal dashboard with your avatars. Please do it **now**.
 
 
 ## Git
@@ -73,21 +61,6 @@ Then copy this line with `Ctrl` + `C`:
 ```bash
 sudo apt install -y git
 ```
-
-## Sublime Text 3 - Your text editor
-
-A text editor is one of the most important tools of a developer.
-Follow these instructions in the Terminal:
-
-```bash
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update
-sudo apt install -y sublime-text
-```
-
-Sublime Text is free without any time limitation but a popup will appear every ten saves to remind you there is a license to buy. You can hit `Esc` when this happens, but feel free to buy Sublime Text if you really like this one (there are alternatives).
-
 
 ## Oh-my-zsh - Fancy your Terminal
 
@@ -117,7 +90,7 @@ If it doesn't, **ask a teacher**.
 
 To make this change stick, close your terminal and open it again.
 
-## GitHub
+## Git -> Azure
 
 We need to generate SSH keys which are going to be used by GitHub and Heroku
 to authenticate you. Think of it as a way to log in, but different from the
@@ -173,13 +146,8 @@ understanding of what those keys are used for.
 
 ## Dotfiles (Standard configuration)
 
-Hackers love to refine and polish their shell and tools. We'll start with a great default configuration provided by [Le Wagon](http://github.com/lewagon/dotfiles), stored on GitHub. As your configuration is personal, you need your own repository storing it, so you first need to fork it to your GitHub account.
+Hackers love to refine and polish their shell and tools. We'll start with a great default configuration provided by [Dotfiles](http://github.com/gbs0/dotfiles), stored on GitHub. As your configuration is personal, you need your own repository storing it, so you first need to fork it to your GitHub account.
 
-:arrow_right: [Click here to **fork**](https://github.com/lewagon/dotfiles/fork) the `lewagon/dotfiles` repository to your account.
-
-You should arrive on a page that looks like this. Make sure to **select your GitHub account**.
-
-![](images/fork.png)
 
 Forking means that it will create a new repo in your GitHub account, identical to the original one. You'll have a new repository on your GitHub account, `your_github_username/dotfiles`. We need to fork because each of you will need to put specific information (e.g. your name) in those files.
 
@@ -287,96 +255,6 @@ plugins=(gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting
 Save the `.zshrc` file with `Ctrl` + `S` and you can close Sublime Text.
 
 
-## Installing Ruby (with [rbenv](https://github.com/sstephenson/rbenv))
-
-First we need to clean up any previous Ruby installation you might have:
-
-```bash
-rvm implode && sudo rm -rf ~/.rvm
-# If you got "zsh: command not found: rvm", carry on. It means `rvm` is not
-# on your computer, that's what we want!
-
-rm -rf ~/.rbenv
-```
-
-Then in the terminal, run:
-
-```bash
-sudo apt install -y build-essential tklib zlib1g-dev libssl-dev libffi-dev libxml2 libxml2-dev libxslt1-dev libreadline-dev
-sudo apt clean
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-```
-
-**Close your terminal and open it again** (Alt+F4 and restart it). If you get a warning, just **ignore** it from now (Ruby is not installed yet).
-
-
-Now, you are ready to install the latest ruby version, and set it as the default version.
-
-Run this command, it will **take a while (5-10 minutes)**
-
-```bash
-rbenv install 2.6.5
-```
-
-Once the ruby installation is done, run this command to tell the system
-to use the 2.6.5 version by default.
-
-```bash
-rbenv global 2.6.5
-```
-
-Then **restart** your Terminal again (close it and reopen it).
-
-```bash
-ruby -v
-```
-
-You should see something starting with `ruby 2.6.5p`. If not, ask a teacher.
-
-## Installing some gems
-
----
-
-:warning: If you are in **China** :cn:, you should update the way we'll install gem with the following commands. If you are not in China, well just skip this and go directly to the next `gem install` command!
-
-```bash
-# China only!
-gem sources --remove https://rubygems.org/
-gem sources -a https://gems.ruby-china.com/
-gem sources -l
-# *** CURRENT SOURCES ***
-# https://gems.ruby-china.com/
-# Ruby-china.com must be in the list now
-```
-
----
-
-All, please run the following line:
-
-```bash
-gem install rake bundler rspec rubocop rubocop-performance pry pry-byebug hub colored octokit
-```
-
-**Never** install a gem with `sudo gem install`! Even if you stumble upon a Stackoverflow answer
-(or the Terminal) telling you to do so.
-
-
-To be sure that you can interact with your browser installed on Windows from your new Ubuntu terminal:
-Run the appropriate command in your terminal:
-
-If you're using Google Chrome.
-```bash
-echo "export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe" >> ~/.zshrc
-```
-If you're using Mozilla Firefox.
-```bash
-echo "export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe" >> ~/.zshrc
-```
-
-Restart your terminal.
-
-
 ## Postgresql
 
 In a few weeks, we'll talk about SQL and Databases and you'll need something called Postgresql,
@@ -398,7 +276,6 @@ echo "sudo /etc/init.d/postgresql start" >> ~/.zshrc
 ```
 
 
-
 ## Check-up
 
 Let's check if you successfully installed everything.
@@ -410,32 +287,4 @@ curl -Ls https://raw.githubusercontent.com/lewagon/setup/master/check.rb > _.rb 
 ```
 
 It should tell you if your workstation is ready :) If not, ask a teacher.
-
-
-## Alumni
-
-Register as a Wagon alumni by going to [kitt.lewagon.com/onboarding](http://kitt.lewagon.com/onboarding). Select your batch, sign in with GitHub and enter all your information.
-
-Your teacher will then validate that you are indeed part of the batch. You can ask him to do it as soon as you completed the registration form.
-
-Once the teacher has approved your profile, go to your email inbox. You should have 2 emails:
-
-- One from Slack, inviting you to the Le Wagon Alumni slack community (where you'll chat with your buddies and all the previous alumni). Click on **Join** and fill the information.
-- One from GitHub, inviting you to `lewagon` team. **Accept it** otherwise you won't be able to access the lecture slides.
-
-
-## Slack
-
-Download and install the Slack app from [slack.com](https://slack.com/downloads/windows), and install it.
-
-Launch the app and sign in to `lewagon-alumni` organization.
-
-Make sure you upload a picture there.
-
-You can also sign in to Slack on your iPhone or Android device!
-
-The idea is that you'll have Slack open all day, so that you can share useful links / ask for help / decide where to go to lunch / etc.
-
-Enjoy your ride with Le Wagon :)
-
 
