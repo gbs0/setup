@@ -1,21 +1,12 @@
 # Setup instructions
 
-The following instructions will help you to get ready for [Le Wagon](http://www.lewagon.org) fullstack bootcamp:
+The following instructions will help you to get ready for [Agrotools]() fullstack development:
 
 - Grab a text editor, where you will spend your days and nights
 - Install a package manager
 - Pimp your Terminal
 - Setup git and GitHub
 - Install VsCode, Python, Node, Yarn & .NET & ASP Dependencies
-
-
-## Prerequisites
-
-Before we start, it is important you meet the following prerequisites to ensure the smooth running of the setup.
-Take your time to read through everything and do not hesitate to ask for help if you feel stuck.
-
-Ready? Let's go :sunglasses:
-
 
 
 ### Windows 10
@@ -184,7 +175,6 @@ For many computers, this is already the case. Let's check:
 </details>
 
 ---
-
 
 
 ## Windows Subsystem for Linux
@@ -631,6 +621,372 @@ You can refer to the screenshot above to get a sense of how it should look like.
 
 
 
+&nbsp;
+
+At then end, your terminal should look like this:
+
+&nbsp;&nbsp;&nbsp; :x: If the message you get talks about Virtualization, please **contact a teacher**
+
+&nbsp;&nbsp;&nbsp; :white_check_mark: You can close this Command Prompt terminal; we are ready to install Ubuntu!
+
+#### :wrench: Potential Fixes
+
+<details>
+  <summary>Enable Virtual Machine Platform Windows feature</summary>
+
+Follow the steps described [here](https://www.configserverfirewall.com/windows-10/please-enable-the-virtual-machine-platform-windows-feature-and-ensure-virtualization-is-enabled-in-the-bios/#:~:text=To%20enable%20WSL%202,%20Open,Windows%20feature%20on%20or%20off.&text=Ensure%20that%20the%20Virtual%20Machine,Windows%20will%20enable%20WSL%202) until you enable <strong>Virtual Machine Platform</strong> and <strong>Windows Subsystem for Linux</strong>
+
+</details>
+
+<details>
+  <summary>Enable Hyper-V Windows feature</summary>
+
+Follow the steps described [here](https://winaero.com/enable-use-hyper-v-windows-10/) until you enable the group <strong>Hyper-V</strong>
+
+</details>
+
+## Ubuntu
+### Installation
+
+
+- Click on `Start`
+- Type  `Microsoft Store`
+- Click on the Microsoft Windows Store in the list
+>
+>
+- Search for `Ubuntu` in the search bar
+- Select version without any number, just plain "Ubuntu"
+>
+>
+- Click on `Install`
+
+
+:warning: Don't install **Ubuntu 18.04 LTS** nor **Ubuntu 20.04**!
+
+---
+
+#### :wrench: Potential Fixes
+
+
+<details>
+  <summary>Uninstall wrong versions of Ubuntu</summary>
+
+  &nbsp;
+
+
+  To uninstall a wrong version of Ubuntu, you just have to go to the Installed Program List of Windows 10:
+
+
+  - Press `Windows` + `R`
+  - Type  `ms-settings:appsfeatures`
+  - Press `Enter`
+
+
+  Find the right software to uninstall and click on the uninstall button.
+</details>
+
+---
+
+
+&nbsp;
+Once the installation is done, the `Install` button becomes a `Launch` button:
+
+
+- Click on `Launch`
+
+
+At first launch, you will be asked some information:
+- Choose a **username**:
+    - one word
+    - lowercase
+    - no special characters
+    - for example: `lewagon` or your `firstname`
+- Choose a **password**
+- Confirm your password
+
+
+:warning: When typing the password, nothing will not appear on the screen — there will be no familiar typing indicator even though your keystrokes are being registered!
+
+:warning: This is a security feature to mask not only your password as a whole but also its length!
+
+
+&nbsp;
+
+
+&nbsp;&nbsp;&nbsp; :white_check_mark: The installation should be complete; you can close the Ubuntu window now that it is installed on your computer.
+
+### Check the WSL version of Ubuntu
+
+
+- Press `Windows` + `R`
+- Type  `cmd`
+- Press `Enter`
+
+
+Type the following command:
+
+```bash
+wsl -l -v
+```
+
+&nbsp;
+
+&nbsp;&nbsp;&nbsp; :x: If the version of Ubuntu WSL is 1, we will need to convert it to version 2.
+
+&nbsp;&nbsp;&nbsp; :white_check_mark: If the version of Ubuntu WSL is 2, you are ready to install VS Code!
+
+
+---
+
+#### :wrench: Potential Fixes
+
+
+<details>
+  <summary>Convert Ubuntu WSL V1 to V2</summary>
+
+
+  &nbsp;
+
+
+  In the Command Prompt window, type:
+
+  ```bash
+  wsl --set-version Ubuntu 2
+  ```
+
+  &nbsp;
+
+  &nbsp;&nbsp;&nbsp; :white_check_mark: After a few seconds, you should get the following message: `The conversion is complete`.
+
+  &nbsp;&nbsp;&nbsp; :x: If it does not work, we need to be sure that Ubuntu files are not compressed.
+</details>
+
+<details>
+  <summary>Check for Uncompressed Files</summary>
+
+
+  &nbsp;
+  - Press `Windows` + `R`
+  - Type  `%localappdata%\Packages`
+  - Press `Enter`
+  >
+  >
+  - Open the folder named `CanonicalGroupLimited.UbuntuonWindows...`
+  - Right Click on the `LocalState` folder
+  - Click on `Properties`
+  - Click on `Advanced`
+  - Make sure that the option `Compress content` is **not** ticked, then click on `Ok`.
+
+
+  Apply changes to this folder only and try to convert the Ubuntu WSL version again.
+
+
+  &nbsp;&nbsp;&nbsp; :x: If the conversion still does not work, please **contact a teacher**.
+</details>
+
+---
+
+
+(You can now close this Command Prompt window.)
+
+
+
+## Visual Studio Code
+
+We use Visual Code Studio for writing code on Windows, because it integrates nicely with the Ubuntu terminal.
+
+For this integration to work, you need to uninstall other code editor, like for example SublimeText, as their WSL integration interferes with the integration of VS Code.
+
+### Installation
+- Go to the [Visual Studio Code page](https://code.visualstudio.com/download)
+- Choose the Windows version of VS Code
+
+
+The tool should start to download automatically.
+
+- Open the file you have just downloaded.
+- Install it with a few options:
+    - Register VS Code as an editor for supported file types
+    - Let the other options as they are
+
+![VS Code install](images/vscode-install.png)
+
+### Connecting VS Code to Ubuntu
+
+- Launch VS Code a first time, then:
+    - Pin it to the taskbar; you will be using it a lot!
+    - You should have a frame at the bottom-right corner of VS Code saying it detects WSL
+    - Accept the installation of the WSL extension for VS Code
+
+:warning: This extension is mandatory for you to be able to work with VS Code!
+
+### VS Code Shortcuts
+
+In VS Code:
+
+- Click on `File`
+- Click on `Preferences`
+- Click on `Keymaps`
+- Click on `Sublime Text Keymap and Settings Importer`
+- Click on `Install`
+
+
+### VS Code Extensions
+
+Let's gain time now and add other extensions that will be helpful during your Bootcamp.
+
+For each of these extensions:
+
+- On the web page, click on `install`
+- In the browser, accept to use VS Code to install the extension
+- In VS Code, click on `install`
+
+**Extensions**
+- [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings)
+- [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+- And others...
+
+### VS Code Settings
+- Press `Ctrl` + `,` on your keyboard to open the settings
+- In the search bar, type `emmet`
+- Click on the first **`Edit in settings.json`** link
+
+Paste the following just before the last `}`:
+
+```bash
+"emmet.triggerExpansionOnTab": true,
+"emmet.includeLanguages": {
+  "erb": "html"
+},
+```
+
+It should look like this:
+
+![vscode_emmet](images/vscode_emmet.jpg)
+
+:warning: You should add a comma if there is none after the **`]`** like line 26 in the image above ☝️
+
+:warning: Don't forget to save those changes!
+
+### Final Check
+
+To make sure everything works fine, close VS Code, then open your Ubuntu terminal:
+
+- Press `Windows` + `R`
+- Type  `ubuntu`
+- Press `Enter`
+
+
+In Ubuntu, let's try to launch VS Code:
+
+```bash
+code
+```
+
+&nbsp;
+
+&nbsp;&nbsp;&nbsp; :x: If Visual Studio Code does not open, please **contact a teacher**
+
+&nbsp;&nbsp;&nbsp; :white_check_mark: If Visual Studio Code opens, your code editor is ready! :muscle:
+
+
+## Windows Terminal
+
+The standard Ubuntu terminal is a very crude way of using Ubuntu; let's use a real modern terminal!
+
+### Installation
+
+We first need to install **Windows Terminal** from the Microsoft Windows Store:
+
+
+- Click on `Start`
+- Type  `Microsoft Store`
+- Click on the Microsoft Windows Store in the list
+>
+>
+- Search for `Windows Terminal` in the search bar
+>
+>
+- Click on `Install`
+
+
+Once the installation is done, the `Install` button becomes a `Launch` button:
+
+
+- Click on `Launch`
+- Right Click on the icon in the taskbar
+- Choose to pin the app to the bar
+
+
+This terminal allows you to open multiple terminal sessions, including **PowerShell**, **Command Prompt** and **Ubuntu** that you installed earlier.
+
+This terminal has tabs: you can choose to open a new terminal tab clicking on the **down arrow** / **v-shape** next to the current one.
+
+:warning: From now on, we will only need **Ubuntu** as a terminal.
+
+### Ubuntu as the default terminal
+
+Let's make Ubuntu the default terminal of your Windows Terminal application.
+
+
+- Press `Ctrl` + `,`
+
+
+It should open the settings:
+
+![wsl2_settings](images/settings_wsl2.PNG)
+
+We have put in red the part we will use or change.
+
+
+&nbsp;
+
+
+First, let us ask Ubuntu to start directly inside your Ubuntu Home Directory instead of the Windows one:
+
+
+
+- Locate the `"name": "Ubuntu",`
+- Add the following line after it:
+
+```bash
+"startingDirectory": "//wsl$/Ubuntu/home/the-username-you-chose-at-the-ubuntu-install",
+```
+
+:warning: Do not forget the comma at the end of the line!
+
+:warning: Do not forget to replace the username by your own in the line above!
+
+
+
+&nbsp;
+
+Now, let us ask Windows Terminal to start directly an Ubuntu Terminal when launched:
+
+
+
+
+- Locate the `"guid"` for Ubuntu
+- Copy the value between `{` and `}`
+- Locate the `"defaultProfile"`
+- Replace the value between `{` and `}` with what you copied from above
+- Add a comma after the `defaultProfile` so you can add the `"multiLinePasteWarning": false,` option as well. This will disable an annoying warning every time you want to paste multiple lines to your terminal.
+
+You can refer to the screenshot above to get a sense of how it should look like. Don't hesitate to ask for help.
+
+
+:warning: Do not forget to save those changes!
+
+&nbsp;
+
+&nbsp;&nbsp;&nbsp; :white_check_mark: Voilà, your **Windows Terminal** is setup! :confetti_ball:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **From now on, every time we will refer to the terminal or the console it will be this one.**
+
+
+
 ## Git
 
 To install `git`:
@@ -714,7 +1070,7 @@ At then end, your terminal should look like this:
 ---
 
 
-## Git -> Azure
+## Git
 
 We need to generate SSH keys which are going to be used by GitHub and Azure
 to authenticate you. Think of it as a way to log in, but different from the
@@ -836,7 +1192,7 @@ gh config set git_protocol ssh
 Finally, create a [gist](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/editing-and-sharing-content-with-gists) to make sure `gh` is working:
 
 ```bash
-echo "Hello [Le Wagon](https://www.lewagon.com) :wave:" | gh gist create -d "Starting my coding journey..." -f "SETUP_DAY.md" -p -w
+echo "Hello [Agrotools](https://www.agrotools.com.br) :wave:" | gh gist create -d "Starting my coding journey..." -f "SETUP_DAY.md" -p -w
 ```
 
 This line should open your browser on the newly created gist page. See, we've just created a [**Markdown**](https://guides.github.com/features/mastering-markdown/) file!
@@ -844,7 +1200,7 @@ This line should open your browser on the newly created gist page. See, we've ju
 
 Hackers love to refine and polish their shell and tools.
 
-We'll start with a great default configuration provided by Le Wagon: [`lewagon/dotfiles`](http://github.com/lewagon/dotfiles).
+We'll start with a great default configuration provided by me: [`lewagon/dotfiles`](http://github.com/gbs0/dotfiles).
 
 As your configuration is personal, you need your **own** repository storing it. Forking means
 that it will create a new repo in your GitHub account, identical to the original one.
@@ -902,6 +1258,102 @@ Let us open the `~/.zshrc` profile file in Visual Code Studio and change slightl
 ```bash
 code ~/.zshrc
 ```
+
+- Locate the line `# Actually load Oh-My-Zsh`
+- **Above it** write the following line:
+
+```bash
+ZSH_DISABLE_COMPFIX=true
+```
+
+&nbsp;
+
+
+You don't want to be asked for your passphrase every time you communicate with a distant repository. So, you need to add the plugin `ssh-agent` to `oh my zsh`:
+
+
+- Spot the line starting with `plugins=`
+- Add `ssh-agent` to the plugins list.
+
+The list should look like:
+
+```
+plugins=(gitfast last-working-dir common-aliases sublime zsh-syntax-highlighting history-substring-search ssh-agent)
+```
+
+&nbsp;
+
+
+&nbsp;&nbsp;&nbsp; :white_check_mark: Save the `.zshrc` file with `Ctrl` + `S` and close Visual Code Studio.
+
+
+
+## Linking your default browser to Ubuntu
+To be sure that you can interact with your browser installed on Windows from your new Ubuntu terminal, we need to set it as your default browser there.
+
+⚠️ You need to execute at least one of the following commands below:
+
+
+<details>
+  <summary>Google Chrome as your default browser</summary>
+
+  &nbsp;
+
+
+  Run the command:
+
+  ```bash
+    ls /mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+  ```
+
+  If you get an error like `ls: cannot access...` Run the following command:
+
+  ```bash
+    echo "export BROWSER='\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\"'" >> ~/.zshrc
+  ```
+
+  Else run:
+
+  ```bash
+    echo "export BROWSER='\"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe\"'" >> ~/.zshrc
+  ```
+
+</details>
+
+
+<details>
+  <summary>Mozilla Firefox as your default browser</summary>
+
+  &nbsp;
+
+
+  Run the command:
+
+  ```bash
+    ls /mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe
+  ```
+
+  If you get an error like `ls: cannot access...` Run the following command:
+
+  ```bash
+    echo "export BROWSER='\"/mnt/c/Program Files/Mozilla Firefox/firefox.exe\"'" >> ~/.zshrc
+  ```
+
+  Else run:
+
+  ```bash
+    echo "export BROWSER='\"/mnt/c/Program Files (x86)/Mozilla Firefox/firefox.exe\"'" >> ~/.zshrc
+  ```
+</details>
+
+<details>
+  <summary>Microsoft Edge as your default browser</summary>
+
+  &nbsp;
+
+
+  Run the command:
+
 
 - Locate the line `# Actually load Oh-My-Zsh`
 - **Above it** write the following line:
@@ -1152,6 +1604,138 @@ In order to convert a Windows path to and from an Ubuntu path:
 - In particular, the `wslpath -w $(pwd)` command returns the Windows path of the current Ubuntu directory
 
 ![](images/wsl_path.png)
+
+
+## Git
+
+To install `git`, first open a terminal. To open a terminal, you can click on the Ubuntu Start button in the sidebar and type `Terminal`. Then click on the terminal icon.
+
+Then copy this line with `Ctrl` + `C`:
+
+```bash
+sudo apt install -y git
+```
+
+:bulb: To **paste it in the terminal**, you need to use `Ctrl` + `Shift` + `V`.
+
+
+Let's now install GitHub [official CLI](https://cli.github.com) (Command Line Interface) with the following commands:
+
+```bash
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt update
+sudo apt install -y gh
+```
+
+To check that `gh` has been successfully installed on your machine, you can run:
+
+```bash
+gh --version
+```
+
+If you don't get a prompt saying `gh version X.Y.Z (YYYY-MM-DD)` with at least version 1.4, please refer to [the documentation](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#official-sources) where they list some troubleshooting information.
+
+## Oh-my-zsh - Fancy your Terminal
+
+We will use the shell named `zsh` instead of `bash`, the default one.
+
+```bash
+sudo apt install -y zsh curl vim imagemagick jq
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# it will ask for your session password
+```
+
+Be careful, those commands will ask you to type your password twice. At the end
+your prompt should look like this:
+
+![](images/ubuntu_oh_my_zsh.png)
+
+If it doesn't, **ask a teacher**.
+
+To make this change stick, restart your laptop (or virtual machine):
+
+```bash
+sudo reboot
+```
+
+
+## Dotfiles (Standard configuration)
+
+Hackers love to refine and polish their shell and tools.
+
+We'll start with a great default configuration provided by Le Wagon: [`lewagon/dotfiles`](http://github.com/lewagon/dotfiles).
+
+As your configuration is personal, you need your **own** repository storing it. Forking means
+that it will create a new repo in your GitHub account, identical to the original one.
+You'll have a new repository on your GitHub account, `$GITHUB_USERNAME/dotfiles`.
+We need to fork because each of you will need to put **specific** information (e.g. your name) in those files.
+
+Open your terminal and run the following command:
+
+```bash
+export GITHUB_USERNAME=`gh api user | jq -r '.login'`
+echo $GITHUB_USERNAME
+```
+
+You should see your GitHub username printed. If it's not the case, **stop here** and ask for help.
+There seems to be a problem with the previous step (`gh auth`).
+
+Time to fork the repo and clone it on your laptop:
+
+```bash
+mkdir -p ~/code/$GITHUB_USERNAME && cd $_
+gh repo fork lewagon/dotfiles --clone
+```
+
+Run the `dotfiles` installer.
+
+```bash
+cd ~/code/$GITHUB_USERNAME/dotfiles && zsh install.sh
+```
+
+Check the emails registered with your GitHub Account. You'll need to pick one
+at the next step:
+
+```bash
+gh api user/emails | jq -r '.[].email'
+```
+
+Run the git installer:
+
+```bash
+cd ~/code/$GITHUB_USERNAME/dotfiles && zsh git_setup.sh
+```
+
+:point_up: This will **prompt** you for your name (`FirstName LastName`) and your email. Be careful
+you **need** to put one of the email listed above thanks to the previous `gh api ...` command. If you
+don't do that, Kitt won't be able to track your progress.
+
+Please now **quit** all your opened terminal windows.
+
+
+## Ubuntu inotify
+
+Ubuntu is always tracking changes in your folders and to do this it uses inotify.
+By default the Ubuntu limit is set to 8192 files monitored.
+
+As programming involves a lot of files, we need to raise this limit.
+In your terminal run:
+
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+
+## Extra
+
+### Install video codec H264
+
+On our pedagogical platform (Kitt, you'll soon discover it!), we have some videos. By default Firefox on Linux cannot play them as they use an unsupported codec (H264). To get those videos working for you, you need to run this:
+
+```bash
+sudo apt install libavcodec-extra -y
+```
 
 ### Install useful terminal tools
 
